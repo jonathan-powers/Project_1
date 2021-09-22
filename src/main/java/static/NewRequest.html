@@ -3,6 +3,33 @@
 <html>
     <head>
         <title>Expense Reimbursement System</title>
-        <style></style>
+        <link rel="stylesheet" href="css/requeststyle.css">
     </head>
+    <body>
+        <header>
+            <h1>Expense Reimbursement System</h1>
+            <h2>New Request</h2>
+        </header>
+        <form>
+            <h2>Create A New Request</h2>
+            <div id="new_form">
+                <div>
+                    <label>Title</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>Expense</label>
+                    <input type="number">
+                </div>
+                <div>
+                    <label for="Description">Description:</label> 
+                    <textarea rows="5" cols="50" name="Description"
+                            id="Description"></textarea> 
+                </div>
+                <div>
+                    <button>Submit</button>
+                </div>    
+            </div>
+        </form>
+    </body>
 </html>
