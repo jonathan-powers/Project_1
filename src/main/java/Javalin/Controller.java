@@ -81,6 +81,7 @@ public class Controller {
 			session.setAttribute("Manager", user.isManager());
 
 			ctx.status(200);
+			ctx.json(user);
 		} else {
 			ctx.result("Incorrect credentials");
 			ctx.status(400);
