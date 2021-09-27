@@ -2,6 +2,9 @@
 
 <html>
     <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        
         <title>Expense Reimbursement System</title>
         <link rel="stylesheet" href="css/requeststyle.css">
     </head>
@@ -13,23 +16,25 @@
         <form>
             <h2>Create A New Request</h2>
             <div id="new_form">
-                <div>
-                    <label>Title</label>
+                <div class= "input">
+                    <h3>Title</h3>
                     <input type="text">
                 </div>
-                <div>
-                    <label>Expense</label>
+                <div class= "input">
+                    <h3>Amount</h3>
                     <input type="number">
                 </div>
-                <div>
-                    <label for="Description">Description:</label> 
-                    <textarea rows="5" cols="50" name="Description"
-                            id="Description"></textarea> 
+                <div class= "input">
+                    <h3>Description</h3>
+                    <textarea rows="5" cols="100" id="Description"></textarea> 
                 </div>
-                <div>
-                    <button>Submit</button>
+                <div class= "input">
+                    <button id="Submit">Submit</button>
                 </div>    
             </div>
         </form>
     </body>
+    <footer>
+        <script src="./scripts/newrequest.js"></script>
+    </footer>
 </html>

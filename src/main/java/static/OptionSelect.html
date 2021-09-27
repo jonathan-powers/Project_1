@@ -2,6 +2,9 @@
 
 <html>
     <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+
         <title>Expense Reimbursement System</title>
         <link rel="stylesheet" href="css/requeststyle.css">
     </head>
@@ -10,11 +13,11 @@
             <h1>Expense Reimbursement System</h1>
             <h2>What would you like to do?</h2>
         </header>
-        <div class="selection container">
+        
         <div id="new" class="select">
-            <h3>New Request</h3>
+            <h3 id = "new title">New Request</h3>
             <img src="https://publicdomainvectors.org/photos/money_2.png" />
-            <p>Create a new request</p>
+            <p id = "new description">Create a new request</p>
         </div>
         <div id="old" class="select">
             <h3>Previous Request</h3>
@@ -24,8 +27,10 @@
         <div id="pending" class="select">
             <h3>Pending Requests</h3>
             <img src="https://publicdomainvectors.org/photos/money_2.png" />
-            <p>Check And Update Pending Requests</p>
-        </div>
+            <p>Check Pending Requests</p>
         </div>
     </body>
+    <footer>
+        <script src="./scripts/optionselect.js"></script>
+    </footer>
 </html>

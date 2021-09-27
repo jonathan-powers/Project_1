@@ -2,27 +2,34 @@
 
 <html>
     <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
         <title>Expense Reimbursement System</title>
         <link rel="stylesheet" href="css/requeststyle.css">
     </head>
-    <body>
+    <body id = "body">
         <header>
             <h1>Expense Reimbursement System</h1>
-            <h2>Request:</h2>
+            <h2 id="request num">Request:</h2>
         </header>
-        <div class="request page">
+        <div id="requestcontainer">
+        <!-- <div class="request">
             <p class="title">Sample Request</p>
-            <p class="request_id">00</p>
+            <p class="request_id">Request: 00</p>
             <p class="amount">$0.00</p>
             <p class="reason">additional comments here</p>
             <p class="user">User</p>
             <p class="approval">Pending</p>
+        </div> -->
         </div>
-        <div>
+        <!-- <div id ="approve">
             <h3>Approve</h3>
         </div>
-        <div>
+        <div id="deny">
             <h3>Deny</h3>
-        </div>
+        </div> -->
     </body>
+    <footer>
+        <script src="./scripts/request.js"></script>
+    </footer>
 </html>

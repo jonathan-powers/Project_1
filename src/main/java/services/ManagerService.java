@@ -1,6 +1,9 @@
 package services;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import DAO.DAOsession;
 import models.Request;
@@ -8,34 +11,128 @@ import models.User;
 
 public class ManagerService {
 	
-	public List<Request> getAllRequests(){
-		DAOsession dao = new DAOsession();
+	private DAOsession dao = new DAOsession();
+
+	public List<Request> getAllRequests() {
+		dao = new DAOsession();
 		return dao.getAllRequests();
 	}
-	
-	public List<Request> getSortRequest(int approval){
-		DAOsession dao = new DAOsession();
-		return dao.getAllRequests(approval);
+
+	public List<Request> getReviewedRequests() {
+		dao = new DAOsession();
+		List<Request> allRequests = dao.getAllRequests();
+		List<Request> requests = new ArrayList<Request>();
+		for (Request request : allRequests) {
+			if (request.getApproval() != 0) {
+				requests.add(request);
+			}
+		}
+		return requests;
 	}
-	
-	public List<Request> getUserRequests(User user){
-		DAOsession dao = new DAOsession();
+
+	public List<Request> getPendingRequests() {
+		dao = new DAOsession();
+		List<Request> allRequests = dao.getAllRequests();
+		List<Request> requests = new ArrayList<Request>();
+		for (Request request : allRequests) {
+			if (request.getApproval() == 0) {
+				requests.add(request);
+			}
+		}
+		return requests;
+	}
+
+	public List<Request> getUserRequests(User user) {
+		dao = new DAOsession();
 		return dao.getRequestsbyUser(user);
 	}
-	
+
 	public Request getRequest(int id) {
-		DAOsession dao = new DAOsession();
+		dao = new DAOsession();
 		return dao.getRequestbyId(id);
 	}
-	
+
 	public void updateRequest(Request request) {
-		DAOsession dao = new DAOsession();
+		 dao = new DAOsession();
 		dao.updateRequest(request);
 	}
 
 	public User getUser(int id) {
-		DAOsession dao = new DAOsession();
+		dao = new DAOsession();
 		return dao.getUser(id);
 	}
 
+	public void approveRequest(Request request) {
+		dao = new DAOsession();
+		request.setApproval(1);
+		dao.updateRequest(request);
+	}
+
+	public void denyRequest(Request request) {
+		dao = new DAOsession();
+		request.setApproval(-1);
+		dao.updateRequest(request);
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Map getStats() {
+		Map stats = new HashMap();
+		double average = this.findAverage();
+		double max = this.findMax();
+		double most = this.findMost();
+		
+		stats.put("Average", average);
+		stats.put("Max", max);
+		stats.put("Most", most);
+		
+		return stats;
+	}
+
+	public double findAverage() {
+		dao = new DAOsession();
+		List<Request> allRequests = dao.getAllRequests();
+		double sum = 0;
+		for (Request request : allRequests) {
+			sum = sum + request.getAmount();
+		}
+		
+		return (sum / allRequests.size());
+	}
+
+	public double findMax() {
+		dao = new DAOsession();
+		List<Request> allRequests = dao.getAllRequests();
+		double max = 0;
+		for (Request request : allRequests) {
+			if (request.getAmount() > max) {
+				max = request.getAmount();
+			}
+		}
+		return max;
+	}
+
+	public int findMost() {
+		dao = new DAOsession();
+		List<Request> allRequests = dao.getAllRequests();
+		List<User> users = dao.getAllUsers();
+		List< Double> useramounts = new ArrayList< Double>();
+		int user_index = 0;
+		for (User user : users) {
+			double sum = 0;
+			for (Request request : allRequests) {
+				if (user.getId() == request.getUser_Id()) {
+					sum = sum + request.getAmount();
+				}
+			}
+			useramounts.add(sum);
+		}
+		for (int i = 0; i<useramounts.size(); i++) {
+			double max = 0;
+			if (useramounts.get(i) > max) {
+				max = useramounts.get(i);
+				user_index = i;
+			}
+		}
+		return users.get(user_index).getId();
+	}
 }

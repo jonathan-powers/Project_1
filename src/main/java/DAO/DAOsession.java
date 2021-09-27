@@ -39,7 +39,7 @@ public class DAOsession implements DAO {
 			s = HibernateSessionFactory.getSession();
 			tx = s.beginTransaction();
 			requests = s.createQuery("FROM models.Request", Request.class).getResultList();
-			
+			tx.commit();
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class DAOsession implements DAO {
 			s = HibernateSessionFactory.getSession();
 			tx = s.beginTransaction();
 			requests = s.createQuery("FROM models.Request R WHERE R.approval="+approval, Request.class).getResultList();
-			
+			tx.commit();
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class DAOsession implements DAO {
 			s = HibernateSessionFactory.getSession();
 			tx = s.beginTransaction();
 			requests = s.createQuery("FROM models.Request R WHERE R.user_Id="+user.getId(), Request.class).getResultList();
-			
+			tx.commit();
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
@@ -94,7 +94,7 @@ public class DAOsession implements DAO {
 			s = HibernateSessionFactory.getSession();
 			tx = s.beginTransaction();
 			request = s.get(Request.class, Id);
-			
+			tx.commit();
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
@@ -155,17 +155,35 @@ public class DAOsession implements DAO {
 			tx = s.beginTransaction();
 			String sql = "FROM models.User U WHERE U.email= :email";
 	
-			Query query = s.createQuery(sql, User.class);
+			Query<User> query = s.createQuery(sql, User.class);
 			query.setParameter("email",email);
 			user = (User) query.getSingleResult();
 			
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
+			tx.commit();
 		} finally {
 			s.close();
 		}
 		return user;
+	}
+	
+	public List<User> getAllUsers() {
+		Session s = null;
+		Transaction tx = null;
+		List<User>  users = null;
+		
+		try {
+			s = HibernateSessionFactory.getSession();
+			tx = s.beginTransaction();
+			users = s.createQuery("FROM models.User", User.class).getResultList();
+			tx.commit();
+		} catch(HibernateException e) {
+			tx.rollback();
+			e.printStackTrace();
+		} 
+		return users;
 	}
 
 }
