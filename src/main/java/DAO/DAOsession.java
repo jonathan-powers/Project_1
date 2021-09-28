@@ -26,6 +26,8 @@ public class DAOsession implements DAO {
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
+		} finally {
+			s.close();
 		}
 		
 	}
@@ -172,7 +174,7 @@ public class DAOsession implements DAO {
 	public List<User> getAllUsers() {
 		Session s = null;
 		Transaction tx = null;
-		List<User>  users = null;
+		List<User> users = null;
 		
 		try {
 			s = HibernateSessionFactory.getSession();
@@ -182,7 +184,9 @@ public class DAOsession implements DAO {
 		} catch(HibernateException e) {
 			tx.rollback();
 			e.printStackTrace();
-		} 
+		} finally {
+			s.close();
+		}
 		return users;
 	}
 

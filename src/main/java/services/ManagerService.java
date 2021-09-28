@@ -14,12 +14,10 @@ public class ManagerService {
 	private DAOsession dao = new DAOsession();
 
 	public List<Request> getAllRequests() {
-		dao = new DAOsession();
 		return dao.getAllRequests();
 	}
 
 	public List<Request> getReviewedRequests() {
-		dao = new DAOsession();
 		List<Request> allRequests = dao.getAllRequests();
 		List<Request> requests = new ArrayList<Request>();
 		for (Request request : allRequests) {
@@ -31,7 +29,6 @@ public class ManagerService {
 	}
 
 	public List<Request> getPendingRequests() {
-		dao = new DAOsession();
 		List<Request> allRequests = dao.getAllRequests();
 		List<Request> requests = new ArrayList<Request>();
 		for (Request request : allRequests) {
@@ -43,33 +40,27 @@ public class ManagerService {
 	}
 
 	public List<Request> getUserRequests(User user) {
-		dao = new DAOsession();
 		return dao.getRequestsbyUser(user);
 	}
 
 	public Request getRequest(int id) {
-		dao = new DAOsession();
 		return dao.getRequestbyId(id);
 	}
 
 	public void updateRequest(Request request) {
-		 dao = new DAOsession();
 		dao.updateRequest(request);
 	}
 
 	public User getUser(int id) {
-		dao = new DAOsession();
 		return dao.getUser(id);
 	}
 
 	public void approveRequest(Request request) {
-		dao = new DAOsession();
 		request.setApproval(1);
 		dao.updateRequest(request);
 	}
 
 	public void denyRequest(Request request) {
-		dao = new DAOsession();
 		request.setApproval(-1);
 		dao.updateRequest(request);
 	}
@@ -89,7 +80,6 @@ public class ManagerService {
 	}
 
 	public double findAverage() {
-		dao = new DAOsession();
 		List<Request> allRequests = dao.getAllRequests();
 		double sum = 0;
 		for (Request request : allRequests) {
@@ -100,7 +90,6 @@ public class ManagerService {
 	}
 
 	public double findMax() {
-		dao = new DAOsession();
 		List<Request> allRequests = dao.getAllRequests();
 		double max = 0;
 		for (Request request : allRequests) {
@@ -112,7 +101,6 @@ public class ManagerService {
 	}
 
 	public int findMost() {
-		dao = new DAOsession();
 		List<Request> allRequests = dao.getAllRequests();
 		List<User> users = dao.getAllUsers();
 		List< Double> useramounts = new ArrayList< Double>();
@@ -126,8 +114,8 @@ public class ManagerService {
 			}
 			useramounts.add(sum);
 		}
+		double max = 0;
 		for (int i = 0; i<useramounts.size(); i++) {
-			double max = 0;
 			if (useramounts.get(i) > max) {
 				max = useramounts.get(i);
 				user_index = i;

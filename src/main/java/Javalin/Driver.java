@@ -1,6 +1,7 @@
 package Javalin;
 
 import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
 
 public class Driver {
 	
@@ -52,7 +53,7 @@ public class Driver {
 			ctx.res.addHeader("Access-Control-Allow-Headers", "*");
 		});
 		
-		//app.config.addStaticFiles("/static", Location.CLASSPATH);
+		app.config.addStaticFiles("/static", Location.CLASSPATH);
 
 		
 		app.exception(null, null);
