@@ -148,6 +148,12 @@ function managerButtons() {
                     xhr.open('PUT',url);
                     
                     xhr.send(JSON.stringify(request));
+
+                    xhr.onreadystatechange = function () {
+                        if(xhr.readyState === 4 && xhr.status === 200) {
+                            location.href = 'RequestList.html';
+                        }
+                    }
                 }
             }
         }   
@@ -181,6 +187,12 @@ function managerButtons() {
                     xhr.open('PUT',url);
                 
                     xhr.send(JSON.stringify(request));
+
+                    xhr.onreadystatechange = function () {
+                        if(xhr.readyState === 4 && xhr.status === 200) {
+                            location.href = 'RequestList.html';
+                        }
+                    }
                 }
             }
         }

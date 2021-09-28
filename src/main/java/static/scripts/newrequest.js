@@ -26,4 +26,13 @@ function newRequest(request) {
     xhr.open('POST',url);
 
     xhr.send(JSON.stringify(request));
+
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+            location.href = 'OptionSelect.html';
+
+        } else if (xhr.readyState === 4 && xhr.status === 400) {
+            location.reload;
+        }
+    }
 }
