@@ -1,0 +1,82 @@
+body {
+    display:grid;
+    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 1fr 8fr 6fr 1fr;
+    grid-gap: 1%;
+    background-color: rgb(218, 216, 216);
+    align-content: space-around;
+    justify-content: space-around;
+}
+h1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start:1;
+    grid-row-end:2;
+    text-align: center;
+    background-color: rgb(58, 58, 58);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+p1{
+    grid-column-start: 2;
+    grid-row-start:2;
+    border-radius: 10px;
+    text-align: center;
+    font-size: xx-large;
+    justify-content: center;
+    background-color: rgb(58, 58, 58);
+    color:white;
+    margin: 1%;
+}
+p1 ul{
+    background-color: rgb(58, 58, 58);
+    text-align: left;
+    font-size: smaller;
+    color:white;
+    list-style-type: none;
+    padding: 5%;
+
+}
+p1 ul li{
+    padding: 5%;
+    background-color: rgb(131, 131, 131);
+    color: black;
+}
+form{
+    grid-column-start: 3;
+    grid-row-start:2;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(58, 58, 58);
+    color:white;
+    padding: 5%;
+    margin: 1%;
+    }
+form h2{
+    border-radius: 10px;
+    background-color: rgb(84, 84, 84);
+    color: white;
+    padding: 1%;
+}
+
+form div{
+    padding:5%;
+    background-color: rgb(131, 131, 131);
+    color: black;
+}
+form input{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+form label{
+    font-size: larger;
+}
+form button{
+    width: 100%;
+    border-radius: 5px;
+    color: black;
+    background-color: whitesmoke;
+}

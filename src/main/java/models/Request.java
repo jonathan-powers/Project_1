@@ -1,11 +1,13 @@
 package models;
 
+import java.util.Comparator;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "requests")
-public class Request {
+public class Request implements Comparator<Request> {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -99,6 +101,11 @@ public class Request {
 	public String toString() {
 		return "Request [Id=" + Id + ", user_Id=" + user_Id + ", amount=" + amount + ", title=" + title + ", reason="
 				+ reason + ", approval=" + approval + "]";
+	}
+
+	@Override
+	public int compare(Request o1, Request o2) {
+		return Double.compare(o1.getAmount(), o2.getAmount());
 	}
 	
 }

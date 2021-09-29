@@ -1,0 +1,377 @@
+body {
+    display:grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+    grid-gap: 1%;
+    background-color: rgb(216, 216, 216);
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+header{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:1;
+    grid-row-end:3;
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+#all{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:3;
+    grid-row-end:4;
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+#Pending{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start:3;
+    grid-row-end:4;
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+#reviewed{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:3;
+    grid-row-end:4;
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div.request{
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:  4;
+    grid-row-end: 7;
+
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.request_id{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:  4;
+    grid-row-end: 5;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.title{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start:  4;
+    grid-row-end: 5;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.user{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:  4;
+    grid-row-end: 5;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.amount{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:  5;
+    grid-row-end: 6;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.approval{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:  5;
+    grid-row-end: 6;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.approved{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:  5;
+    grid-row-end: 6;
+    text-align: center;
+    background-color: green;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.pending{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:  5;
+    grid-row-end: 6;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.denied{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:  5;
+    grid-row-end: 6;
+    text-align: center;
+    background-color: red;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div p.reason{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:  6;
+    grid-row-end: 7;
+    text-align: center;
+    background-color: white;
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div#approve{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:  9;
+    grid-row-end: 10;
+    text-align: center;
+    background-color: green;
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div#deny{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:  9;
+    grid-row-end: 10;
+    text-align: center;
+    background-color: red;
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div#selectioncontainer{
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div.select{
+    text-align: center;
+    background-color: rgb(201, 201, 201);
+    color:black;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+}
+
+div.select img{
+    width: 60%;
+}
+
+div#new{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div#average{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div#old{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div#max{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div#pending{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div#most{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div#requestcontainer{
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:white;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:4;
+    grid-row-end:9;
+}
+
+div.request{
+    text-align: center;
+    background-color: whitesmoke;
+    color:rgb(90, 90, 90);
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+div.request p.request_id{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+div.request p.title{
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+div.request p.user{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+div.request p.amount{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+div.request p.approval{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+div.request p.reason{
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+form{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 7;
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:whitesmoke;
+    padding: 1%;
+    margin: 2%;
+    
+}
+
+div#new_form{
+    text-align: center;
+    background-color: rgb(216, 216, 216);
+    color:rgb(90, 90, 90);
+    padding: 1%;
+    
+}
+
+div.input{
+    text-align: center;
+    background-color: rgb(90, 90, 90);
+    color:whitesmoke;
+    padding: 1%;
+    margin: 2%;
+}
+
+div.input input{
+    width: 50%;
+}
